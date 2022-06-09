@@ -10,8 +10,8 @@ export function Login() {
         <div className="loginContainer">
             <main>
                 <legend>{placeholder} app</legend>
-                <CustomInput label='Username' id='user' />
-                <CustomInput label='Password' id='pass' />
+                <CustomInput label='Username' id='user' type='text' />
+                <CustomInput label='Password' id='pass' type='password' />
             </main>
         </div>
     )

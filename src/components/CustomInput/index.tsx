@@ -1,13 +1,14 @@
 import { User, EyeClosed, Eye, Lock } from 'phosphor-react';
-import { useState } from 'react';
+import { HTMLInputTypeAttribute, useState } from 'react';
 import './CustomInput.scss';
 
 interface CustomInputProps {
     id?: string;
     label?: string;
+    type: HTMLInputTypeAttribute | undefined;
 }
 
-export function CustomInput({ label, id }: CustomInputProps) {
+export function CustomInput({ label, id, type }: CustomInputProps) {
 
     const [passVisible, setPassVisible] = useState(false);
 
@@ -23,7 +24,11 @@ export function CustomInput({ label, id }: CustomInputProps) {
                         <Lock weight='bold' />
                     }
                 </span>
-                <input type="text" id={id} />
+                {type === 'password' ?
+                    <input type={passVisible ? 'text' : 'password'} id={id} />
+                    :
+                    <input type={type} id={id} />
+                }
 
                 <span className='rightIcon' onClick={() => setPassVisible(!passVisible)}>
                     {id === 'pass' ?
